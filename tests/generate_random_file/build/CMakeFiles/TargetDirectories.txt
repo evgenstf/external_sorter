@@ -1,0 +1,4 @@
+/Users/evgenstf/external_sorting/tests/generate_random_file/build/CMakeFiles/rebuild_cache.dir
+/Users/evgenstf/external_sorting/tests/generate_random_file/build/CMakeFiles/edit_cache.dir
+/Users/evgenstf/external_sorting/tests/generate_random_file/build/CMakeFiles/generate_random_file_bin.dir
+/Users/evgenstf/external_sorting/tests/generate_random_file/build/CMakeFiles/generate_random_file.dir
