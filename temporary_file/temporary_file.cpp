@@ -10,7 +10,7 @@ TemporaryFile::~TemporaryFile() {
   std::fclose(file_);
 }
 
-void TemporaryFile::write(size_t position, std::vector<uint8_t> data) {
+void TemporaryFile::write(size_t position, const std::vector<uint8_t>& data) {
   std::fseek(file_, position, SEEK_SET);
   std::fwrite(data.data(), sizeof(uint8_t), data.size(), file_);
 }

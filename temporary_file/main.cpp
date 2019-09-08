@@ -4,7 +4,7 @@
 int main() {
   TemporaryFile file;
   std::vector<uint8_t> data{'a', 'b', 'c'};
-  file.write(3, data);
+  file.write(3, data.begin(), data.end());
 
   auto result = file.read(0, 10);
   std::clog << "write and read string: ";
