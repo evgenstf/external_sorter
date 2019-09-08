@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libgenerate_random_file.a  CMakeFiles/generate_random_file.dir/generate_random_file.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libgenerate_random_file.a

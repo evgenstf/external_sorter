@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/clang++   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/generate_random_file_bin.dir/main.cpp.o  -o generate_random_file_bin libgenerate_random_file.a 
