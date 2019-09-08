@@ -1,16 +1,14 @@
+#include <cstdio>
+#include <optional>
+
 class LineView {
 public:
-  LineView(FILE* file, size_t begin_position):
-    file_(file), begin_position_(begin_position) {}
-
-  uint8_t get_byte(size_t offset) {
-    std::fseek(file_, begin_position + offset, SEEK_SET);
-    uint8_t byte;
-    std::read(&byte, sizeof(uint8_t), 1, file_);
-    return byte;
-  }
+  LineView(FILE* file, size_t begin_position);
+  std::optional<uint8_t> get_byte(size_t offset);
+  size_t size() const { return size_; }
 
 private:
   FILE* file_;
   size_t begin_position_;
+  size_t size_;
 };
