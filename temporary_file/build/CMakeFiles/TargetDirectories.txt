@@ -1,0 +1,4 @@
+/Users/evgenstf/external_sorter/temporary_file/build/CMakeFiles/rebuild_cache.dir
+/Users/evgenstf/external_sorter/temporary_file/build/CMakeFiles/edit_cache.dir
+/Users/evgenstf/external_sorter/temporary_file/build/CMakeFiles/temporary_file_bin.dir
+/Users/evgenstf/external_sorter/temporary_file/build/CMakeFiles/temporary_file.dir

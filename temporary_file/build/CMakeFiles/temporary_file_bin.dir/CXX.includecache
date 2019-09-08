@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/evgenstf/external_sorter/temporary_file/main.cpp
+temporary_file.h
+/Users/evgenstf/external_sorter/temporary_file/temporary_file.h
+iostream
+-
+
+/Users/evgenstf/external_sorter/temporary_file/temporary_file.h
+cstdio
+-
+vector
+-
+
