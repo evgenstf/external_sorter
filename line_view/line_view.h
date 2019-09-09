@@ -1,3 +1,4 @@
+#pragma once
 #include <cstdio>
 #include <optional>
 
@@ -9,6 +10,17 @@ public:
   size_t size() const { return size_; }
 
   std::optional<LineView> next();
+  std::optional<LineView> copy();
+
+  bool operator==(const LineView& right) const {
+    return right.begin_position_ == begin_position_;
+  }
+
+  bool operator!=(const LineView& right) const {
+    return right.begin_position_ != begin_position_;
+  }
+
+  size_t begin_position() const { return begin_position_; }
 
 private:
   LineView(FILE* file, size_t begin_position);

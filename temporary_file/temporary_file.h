@@ -1,3 +1,4 @@
+#include "line_view/line_view.h"
 #include <cstdio>
 #include <vector>
 
@@ -11,7 +12,6 @@ public:
   template<typename Iterator>
   void write(size_t position, Iterator begin, Iterator end);
   void write(size_t position, const std::vector<uint8_t>& data);
-
 
 private:
   FILE* file_;

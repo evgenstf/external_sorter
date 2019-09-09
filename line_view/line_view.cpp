@@ -8,7 +8,7 @@ bool is_byte_exists(FILE* file, size_t offset) {
   return std::fread(&byte, sizeof(uint8_t), 1, file) == 1;
 }
 
-} //
+} // namespace
 
 LineView::LineView(FILE* file, size_t begin_position):
     file_(file), begin_position_(begin_position), size_(0) {
@@ -38,5 +38,9 @@ std::optional<LineView> LineView::create(FILE* file, size_t begin_position) {
 
 std::optional<LineView> LineView::next() {
   return create(file_, begin_position_ + size() + 1);
+}
+
+std::optional<LineView> LineView::copy() {
+  return create(file_, begin_position_);
 }
 
