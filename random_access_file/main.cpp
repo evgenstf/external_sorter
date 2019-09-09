@@ -1,8 +1,8 @@
-#include "temporary_file.h"
+#include "random_access_file.h"
 #include <iostream>
 
 int main() {
-  TemporaryFile file;
+  RandomAccessFile file("text.txt");
   std::vector<uint8_t> data{'a', 'b', 'c'};
   file.write(3, data);
 

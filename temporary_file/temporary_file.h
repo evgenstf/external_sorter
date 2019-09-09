@@ -1,28 +1,8 @@
-#include "line_view/line_view.h"
-#include <cstdio>
-#include <vector>
+#include "random_access_file/random_access_file.h"
+#include <cstdlib>
 
-class TemporaryFile {
+class TemporaryFile : public RandomAccessFile {
 public:
-  TemporaryFile();
-  ~TemporaryFile();
-
-  std::vector<uint8_t> read(size_t position, size_t length);
-
-  template<typename Iterator>
-  void write(size_t position, Iterator begin, Iterator end);
-  void write(size_t position, const std::vector<uint8_t>& data);
-
-private:
-  FILE* file_;
+  TemporaryFile():
+      RandomAccessFile(std::tmpfile()) {}
 };
-
-template<typename Iterator>
-void TemporaryFile::write(size_t position, Iterator begin, Iterator end) {
-  std::vector<uint8_t> data;
-  while(begin != end) {
-    data.push_back(*begin);
-    ++begin;
-  }
-  write(position, data);
-}
