@@ -25,3 +25,10 @@ std::vector<uint8_t> RandomAccessFile::read(size_t position, size_t length) {
   return data;
 }
 
+uint8_t RandomAccessFile::read(size_t position) {
+  std::fseek(file_, position, SEEK_SET);
+  uint8_t byte;
+  std::fread(&byte, sizeof(uint8_t), 1, file_);
+  return byte;
+}
+
