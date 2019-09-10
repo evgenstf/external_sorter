@@ -2,12 +2,12 @@
 
 #include <cstdlib>
 
+RandomAccessFile::RandomAccessFile():
+    file_(std::tmpfile()) {}
+
 RandomAccessFile::RandomAccessFile(const std::string& filename) {
   file_ = std::fopen(filename.c_str(), "r+");
 }
-
-RandomAccessFile::RandomAccessFile(FILE* file):
-    file_(file) {}
 
 RandomAccessFile::~RandomAccessFile() {
   std::fclose(file_);

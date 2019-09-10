@@ -4,6 +4,7 @@
 
 class RandomAccessFile {
 public:
+  RandomAccessFile();
   RandomAccessFile(const std::string& filename);
   ~RandomAccessFile();
 
@@ -11,9 +12,5 @@ public:
   std::vector<uint8_t> read(size_t position, size_t length);
   void write(size_t position, const std::vector<uint8_t>& data);
 
-protected:
-  RandomAccessFile(FILE* file);
-
-private:
   FILE* file_;
 };
