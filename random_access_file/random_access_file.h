@@ -1,6 +1,9 @@
+#pragma once
+
 #include <cstdio>
 #include <string>
 #include <vector>
+#include <optional>
 
 class RandomAccessFile {
 public:
@@ -8,8 +11,8 @@ public:
   RandomAccessFile(const std::string& filename);
   ~RandomAccessFile();
 
-  uint8_t read(size_t position);
-  std::vector<uint8_t> read(size_t position, size_t length);
+  std::optional<uint8_t> read(size_t position) const;
+  std::vector<uint8_t> read(size_t position, size_t length) const;
   void write(size_t position, const std::vector<uint8_t>& data);
 
   FILE* file_;

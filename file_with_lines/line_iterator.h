@@ -1,9 +1,17 @@
+#pragma once
+
+#include "line_view/line_view.h"
+#include "random_access_file/random_access_file.h"
+
 class LineIterator {
 public:
-  LineIterator()
+  LineIterator(const RandomAccessFile& file, size_t begin_position);
+
+  const LineView line_view() const { return line_; }
+
+  LineIterator& operator++();
 
 private:
-  size_t begin_position_;
-
+  const RandomAccessFile& file_;
   LineView line_;
 };

@@ -1,7 +1,6 @@
 #include "temporary_file/temporary_file.h"
 #include "line_view/line_view.h"
 #include "file_with_lines/file_with_lines.h"
-#include <iostream>
 
 namespace {
 

@@ -7,6 +7,9 @@ RandomAccessFile::RandomAccessFile():
 
 RandomAccessFile::RandomAccessFile(const std::string& filename) {
   file_ = std::fopen(filename.c_str(), "r+");
+  if (!file_) {
+    file_ = std::fopen(filename.c_str(), "w+");
+  }
 }
 
 RandomAccessFile::~RandomAccessFile() {
@@ -18,17 +21,21 @@ void RandomAccessFile::write(size_t position, const std::vector<uint8_t>& data) 
   std::fwrite(data.data(), sizeof(uint8_t), data.size(), file_);
 }
 
-std::vector<uint8_t> RandomAccessFile::read(size_t position, size_t length) {
+std::vector<uint8_t> RandomAccessFile::read(size_t position, size_t length) const {
   std::vector<uint8_t> data(length);
   std::fseek(file_, position, SEEK_SET);
-  std::fread(data.data(), sizeof(uint8_t), length, file_);
+  size_t result_size = std::fread(data.data(), sizeof(uint8_t), length, file_);
+  data.resize(result_size);
   return data;
 }
 
-uint8_t RandomAccessFile::read(size_t position) {
+std::optional<uint8_t> RandomAccessFile::read(size_t position) const {
   std::fseek(file_, position, SEEK_SET);
   uint8_t byte;
-  std::fread(&byte, sizeof(uint8_t), 1, file_);
-  return byte;
+  if (std::fread(&byte, sizeof(uint8_t), 1, file_) == 1) {
+    return byte;
+  } else {
+    return std::nullopt;
+  }
 }
 

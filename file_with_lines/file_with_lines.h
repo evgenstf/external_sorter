@@ -1,24 +1,9 @@
-#include "line_view/line_view.h"
-#include <stdexcept>
-#include <string>
+#include "random_access_file/random_access_file.h"
+#include "file_with_lines/line_iterator.h"
 
-class FileWithLines {
+class FileWithLines : public RandomAccessFile {
 public:
-  FileWithLines(const std::string& filename) {
-    file_ = std::fopen(filename.c_str(), "r+");
-    if (!file_) {
-      throw std::invalid_argument("file does not exists");
-    }
-  }
+  using RandomAccessFile::RandomAccessFile;
 
-  ~FileWithLines() {
-    std::fclose(file_);
-  }
-
-  std::optional<LineView> first_line() {
-    return LineView::create(file_, 0);
-  }
-
-private:
-  FILE* file_;
+  LineIterator begin() const;
 };
