@@ -39,3 +39,10 @@ std::optional<uint8_t> RandomAccessFile::read(size_t position) const {
   }
 }
 
+size_t RandomAccessFile::size() const {
+  size_t size = 0;
+  while (read(size).has_value()) {
+    ++size;
+  }
+  return size;
+}

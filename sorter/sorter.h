@@ -4,31 +4,6 @@
 
 namespace {
 
-std::optional<LineView> find_middle(
-    std::optional<LineView> block_begin,
-    std::optional<LineView> block_end
-) {
-  std::optional<LineView> middle = block_begin->copy();
-  bool add_to_middle = true;
-  std::clog << "middle: " << middle->begin_position() << ' ' ;
-  while (
-      block_begin != std::nullopt &&
-      (
-       !block_end.has_value() ||
-       block_begin.value() != block_end.value()
-      )
-  ) {
-    block_begin = block_begin->next();
-    if (add_to_middle) {
-      std::clog << "add_to_middle\n";
-      middle = middle->next();
-    }
-    add_to_middle ^= 1;
-  }
-  std::clog << "final middle: " << middle->begin_position() << '\n' ;
-  return middle;
-}
-
 void merge(
     std::optional<LineView> block_begin,
     std::optional<LineView> middle,
@@ -113,6 +88,6 @@ void sort_block_with_lines(
 
 }  // namespace
 
-void sort_file_with_lines(FileWithLines file_with_lines) {
-  sort_block_with_lines(file_with_lines.first_line(), std::nullopt);
+void sort_file_with_lines(RandomAccessFile& file) {
+  sort_block_with_lines(file, 0, file.size());
 }

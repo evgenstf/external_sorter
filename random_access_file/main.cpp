@@ -3,6 +3,8 @@
 
 int main() {
   RandomAccessFile file("text.txt");
+  std::clog << "file size: " << file.size() << std::endl;
+
   std::vector<uint8_t> data{'a', 'b', 'c'};
   file.write(3, data);
 

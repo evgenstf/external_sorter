@@ -15,5 +15,8 @@ public:
   std::vector<uint8_t> read(size_t position, size_t length) const;
   void write(size_t position, const std::vector<uint8_t>& data);
 
+  size_t size() const;
+
+private:
   FILE* file_;
 };
