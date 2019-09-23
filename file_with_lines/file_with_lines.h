@@ -6,4 +6,6 @@ public:
   using RandomAccessFile::RandomAccessFile;
 
   LineIterator begin() const;
+
+  void push_back(const LineView& line_view);
 };

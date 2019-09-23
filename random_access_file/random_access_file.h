@@ -13,7 +13,9 @@ public:
 
   std::optional<uint8_t> read(size_t position) const;
   std::vector<uint8_t> read(size_t position, size_t length) const;
+
   void write(size_t position, const std::vector<uint8_t>& data);
+  void write_back(const std::vector<uint8_t>& data);
 
   size_t size() const;
 

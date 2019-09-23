@@ -46,3 +46,7 @@ size_t RandomAccessFile::size() const {
   }
   return size;
 }
+
+void RandomAccessFile::write_back(const std::vector<uint8_t>& data) {
+  write(size(), data);
+}

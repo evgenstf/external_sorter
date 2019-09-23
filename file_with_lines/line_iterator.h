@@ -10,6 +10,7 @@ public:
   const LineView line_view() const { return line_; }
 
   LineIterator& operator++();
+  bool is_last() const;
 
 private:
   const RandomAccessFile& file_;

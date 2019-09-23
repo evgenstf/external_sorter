@@ -3,9 +3,11 @@
 #include <iostream>
 
 int main() {
-  FileWithLines file("text.txt");
-  auto iterator = file.begin();
-  while (iterator.line_view().length() != 0) {
+  FileWithLines file_to_read("text.txt");
+  FileWithLines file_to_write("output.txt");
+  auto iterator = file_to_read.begin();
+  while (!iterator.is_last()) {
+    file_to_write.push_back(iterator.line_view());
     for (size_t i = 0; i < iterator.line_view().length(); ++i) {
       std::clog << '"' << iterator.line_view()[i] << '"' << ' ';
     }

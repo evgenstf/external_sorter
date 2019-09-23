@@ -25,3 +25,7 @@ LineIterator& LineIterator::operator++() {
   line_.set_length(calculate_length_of_line(file_, next_begin_position));
   return *this;
 }
+
+bool LineIterator::is_last() const {
+  return !file_.read(line_.begin_position()).has_value();
+}
