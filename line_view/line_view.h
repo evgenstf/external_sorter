@@ -14,6 +14,7 @@ public:
   void set_begin_position(size_t begin_position) { begin_position_ = begin_position; }
 
   uint8_t operator[](size_t offset) const;
+  bool operator<(const LineView& right) const;
 
 private:
   const RandomAccessFile& file_;

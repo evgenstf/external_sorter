@@ -10,3 +10,13 @@ uint8_t LineView::operator[](size_t offset) const {
   return read_byte.value();
 }
 
+bool LineView::operator<(const LineView& right) const {
+  size_t iterator = 0;
+  while (iterator < right.length()) {
+    if (iterator == length() || (*this)[iterator] < right[iterator]) {
+      return true;
+    }
+    ++iterator;
+  }
+  return false;
+}
