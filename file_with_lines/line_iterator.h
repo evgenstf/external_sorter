@@ -12,6 +12,8 @@ public:
   LineIterator& operator++();
   bool is_last() const;
 
+  bool operator==(const LineIterator& right) const;
+
 private:
   const RandomAccessFile& file_;
   LineView line_;

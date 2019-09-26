@@ -8,7 +8,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 include_directories(..)
 add_subdirectory(../line_view line_view)
 
-add_library(file_with_lines "file_with_lines.cpp" "line_iterator.cpp")
+add_library(file_with_lines "file_with_lines.cpp" "line_iterator.cpp" "sort.cpp")
 
 add_executable(file_with_lines_bin "main.cpp")
 target_link_libraries(file_with_lines_bin file_with_lines line_view random_access_file)

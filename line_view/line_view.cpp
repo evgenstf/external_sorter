@@ -16,6 +16,9 @@ bool LineView::operator<(const LineView& right) const {
     if (iterator == length() || (*this)[iterator] < right[iterator]) {
       return true;
     }
+    if ((*this)[iterator] > right[iterator]) {
+      return false;
+    }
     ++iterator;
   }
   return false;
